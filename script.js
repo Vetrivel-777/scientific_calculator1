@@ -9,14 +9,27 @@ buttons.forEach(button => {
 
         if (value === "C") {
             currentInput = "";
-        } else if (value === "=") {
+        } 
+        else if (value === "=") {
             try {
-                // The eval function calculates the string
                 currentInput = eval(currentInput).toString();
             } catch {
                 currentInput = "Error";
             }
-        } else {
+        } 
+        else if (value === "√") {
+            currentInput = Math.sqrt(eval(currentInput)).toString();
+        } 
+        else if (value === "x²") {
+            currentInput = Math.pow(eval(currentInput), 2).toString();
+        } 
+        else if (value === "%") {
+            currentInput = (eval(currentInput) / 100).toString();
+        } 
+        else if (value === "^") {
+            currentInput += "**"; // JS power operator
+        } 
+        else {
             if (currentInput === "Error") {
                 currentInput = "";
             }

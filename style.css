@@ -46,6 +46,8 @@ button {
     transition: 0.2s;
 }
 
+
+
 button:hover {
     background: #5a5a7a;
 }
@@ -55,4 +57,13 @@ button:active {
 }
 button:last-child {
     background: #ff9500;
+}
+
+.operator {
+    background: #ff4da6;
+    color: white;
+}
+
+.operator:hover {
+    background: #ff66b3;
 }
