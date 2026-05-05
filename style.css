@@ -67,3 +67,6 @@ button:last-child {
 .operator:hover {
     background: #ff66b3;
 }
+#display.error {
+    color: red;
+}

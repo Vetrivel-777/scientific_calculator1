@@ -11,10 +11,18 @@ buttons.forEach(button => {
             currentInput = "";
         } 
         else if (value === "=") {
+            display.classList.remove("error");
             try {
-                currentInput = eval(currentInput).toString();
+                let result = eval(currentInput);
+                if (!isFinite(result)) {
+                    currentInput = "Error";
+                    display.classList.add("error");
+                } else {
+                    currentInput = result.toString();
+                }
             } catch {
                 currentInput = "Error";
+                display.classList.add("error");
             }
         } 
         else if (value === "√") {
@@ -38,4 +46,26 @@ buttons.forEach(button => {
 
         display.value = currentInput;
     });
+});
+document.addEventListener("keydown", (event) => {
+    const key = event.key;
+
+    if (!isNaN(key) || "+-*/.%".includes(key)) {
+        currentInput += key;
+    } 
+    else if (key === "Enter") {
+        try {
+            currentInput = eval(currentInput).toString();
+        } catch {
+            currentInput = "Error";
+        }
+    } 
+    else if (key === "Backspace") {
+        currentInput = currentInput.slice(0, -1);
+    } 
+    else if (key === "Escape") {
+        currentInput = "";
+    }
+
+    display.value = currentInput;
 });
